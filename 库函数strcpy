@@ -1,0 +1,23 @@
+char* my_strcpy(char* str1, const char* str2)
+{
+	char* ret = str1;
+	assert(*str1 && *str2);
+	while (*str1++=*str2++)
+	{
+		;
+	}
+	*str1 = *str2;
+	return ret;
+}
+
+//库函数strcpy
+//char *strcpy( char *strDestination, const char *strSource );
+int main()
+{
+	char arr1[30] = "abcdef";
+	char arr2[] = "xiao";
+	char*ret=my_strcpy(arr1, arr2);
+
+	printf("%s", ret);
+	return 0;
+}
