@@ -1,0 +1,44 @@
+int my_strcmp(const char* str1, const char* str2)
+{
+	assert(str1 && str2);//断言，判断是否位NULL输入
+
+	while (*str1==*str2)//判断是相等进入
+	{
+		str1++;
+		str2++;
+		if (*str1 == 0)//若其中一位到了‘\0’，说明其中一串字符串已经到底；
+		{
+			return (*str1 - *str2);
+		}
+	}
+	return (*str1 - *str2);//返后
+}
+
+//库函数strcmp
+//int strcmp( const char *string1, const char *string2 );
+//
+// 比较两个字符串首元素（字符大小）
+//返后值有>0的数,<0的数,=0;
+
+int main()
+{
+	char arr1[] = "abcdef";
+	char arr2[] = "abcdfe";
+
+	int ret=my_strcmp(arr1, arr2);
+	if (ret == 0)
+	{
+		printf("arr1==arr2");
+	}
+	else if (ret > 0)
+	{
+		printf("arr1>arr2");
+	}
+	else
+	{
+		printf("arr1<arr2");
+	}
+
+
+	return 0;
+}
