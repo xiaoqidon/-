@@ -1,0 +1,30 @@
+char* my_strcat(char* str1, const char* str2)
+{
+	char* pa = str1;
+	assert(str1 && str2);
+	while (*str1)
+	{
+		str1++;
+	}
+	while (*str1++=*str2++)
+	{
+		;
+	}
+	*str1 = *str2;
+	return pa;
+}
+
+
+//库函数strcat  追加
+//char *strcat( char *strDestination, const char *strSource );
+//
+//注：这个库函数不能追加自身；要追加自身要用strncat；
+
+int main()
+{
+	char arr1[30] = "abcdef";
+	char arr2[] = "ghijklmnopqrstuvwxyz";
+	char*ret=my_strcat(arr1,arr2);
+	printf("%s", ret);
+	return 0;
+}
