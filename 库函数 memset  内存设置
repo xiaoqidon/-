@@ -1,0 +1,31 @@
+void* memset(void* str, int c, size_t num)
+{
+	assert(str);
+
+	char* p = (char*)str;
+
+	while (num--)
+	{
+		*p = c;
+		p++;
+		
+	}
+	return str;//返后deat（目的地）的的地址
+}
+
+
+//库函数 memset 内存设置
+//void *memset( void *dest, int c, size_t count );
+
+int main()
+{
+	char arr[10] = { 0 };
+
+	memset(arr,'*', sizeof arr);//其中的int c可以为任意，只要最后打印的方式该一下就好
+	
+	for (int i = 0; i < sizeof arr; i++)
+	{
+		printf("%c", arr[i]);
+	}
+	return 0;
+}
