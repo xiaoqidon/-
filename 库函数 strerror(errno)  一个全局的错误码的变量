@@ -1,0 +1,23 @@
+//strerror(errno)  一个全局的错误码的变量
+//char *strerror( int errnum );
+
+//当c语言的库函数在执行中，发现了错误，就会把对应的错误，赋值到errno中
+//strerror函数的作用是:将errnum映射到一个错误消息字符串，返回一个指向该字符串的指针。
+
+//列子：
+int main()
+{
+	FILE* pf = fopen("test.txt", "r");//
+	// fopen 打开文件 文件名称   打开的方式：读文件
+
+	if (pf == NULL)
+	{
+		printf("%s\n", strerror(errno));//No such file or directory  没有这样的文件或目录
+	}
+	else
+	{
+		printf("open success");
+	}
+
+	return 0;
+}
