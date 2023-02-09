@@ -1,0 +1,76 @@
+
+char* my_strtok(char* str, const char* sep)
+{
+	assert(sep);
+	static char* s1 = NULL;//先把第一次切割初地址存起来
+	static char* s11 = NULL;
+	static int count = 0;
+	size_t sz = strlen(sep);
+	static size_t sz1 = NULL;
+	if (str != NULL)//第一次进来切割
+	{
+		sz1 = strlen(str);
+		s11 = str;//记录初始位置
+		for (*str; *str != 0; str++)
+		{
+			for (int i = 0; i < sz; i++)
+			{
+				if (i == 0)
+				{
+					count++;
+				}
+				if (*str == *(sep + i))
+				{
+
+					*str = 0;
+					s1 = str;//记录这一次置0的位置
+					return s11;
+				}
+
+			}
+		}
+
+	}
+	else//
+	{
+
+
+		s11 = s1 + 1;
+		str = s11;
+		for (*str; *str != 0; str++)
+		{
+			for (int i = 0; i < sz; i++)
+			{
+				if (*str == *(sep + i))
+				{
+					*str = 0;
+					s1 = str;//记录这一次切割的位置
+					return s11;
+				}
+
+
+			}
+			if (count > sz1)
+			{
+				return NULL;
+			}
+			return s11;
+		}
+
+	}
+}
+
+
+int main()
+{
+	char arr1[] = "2023.1@..1";
+	char arr2[] = ".@";
+
+	char* ret = NULL;
+
+	for (ret = strtok(arr1, arr2); ret != NULL; ret = strtok(NULL, arr2))
+	{
+		printf("%s\n", ret);
+	}
+	return 0;
+}
