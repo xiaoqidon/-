@@ -1,0 +1,36 @@
+//void* my_memcpy(void* deat,const  void* src, size_t num)
+//{
+//	assert(deat && src);
+//	char* pa=(char*)deat;
+//	char* pb = (char*)src;
+//	void* ret = deat;
+//
+//	while (num--)
+//	{
+//		*pa = *pb;
+//		pa++;
+//		pb++;
+//	}
+//	return ret;
+//}
+//
+//
+////库函数 memcpy  内存中拷贝
+////void *memcpy( void *dest, const void *src, size_t count );
+////只处理不重叠的内存拷贝就行：如果他完成这个就有60分，那这个函数就超额完成了，
+////库函数memcpy他编写的也可以完成重复的,
+//int main()
+//{
+//	int  arr1[] = { 1,2,3,4,5,6,7,8,9 };
+//	int arr2[] = {0};
+//	size_t sz= sizeof(arr1);
+//    char*ret =(char*)my_memcpy(arr1, arr2,sizeof(arr2));
+//	
+//	for (int i = 0; i < 8; i++)
+//	{
+//		printf("%d\n", arr1[i]);
+//	}+
+// 
+// 
+//	return 0;
+//}
